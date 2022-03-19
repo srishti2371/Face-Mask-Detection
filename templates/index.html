@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<h1>Face Mask Classifier</h1>
+<h2>What Does The System Do ?</h2>
+<p> With the growing number of COVID-19 victims around the world, the protection against this invisible enemy is our priority, the most effecient way of fighting against it is to wear a face mask properly.
+Wearing a face mask is everyone's duty nowadays.This web application uses deep learning combined with computer vision to detect people 
+wearing a face mask or not wearinng it. </p>
+
+
+
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+           <center> <button type="submit" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button></center>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+	
+    <h3 id="result">
+        <span> </span>
+    </h3>
+	
+	<div id="auto">
+	<image src="{{ url_for('static',filename='people_photo/savedImage.jpg')}}">
+	</div>
+</div>
+
+{% endblock %}
